@@ -17,21 +17,35 @@ const App = () => {
   const [nextUrl, setNextUrl] = useState('');
   const [postId, setPostId] = useState();
 
-  const returnCustomUrl = (url) => (`http://localhost:3030/${url.split('/api/').pop()}`)
+  const slashCounter = (string) => {
+    let counter = 0
+
+    for (let char of string) {
+      if (char === '/') {
+        counter++
+      }
+    }
+
+    return counter
+  }
 
   const doSearch = async () => {
     try {
-      let id = 1
-      const url = `http://localhost:3030/${newSearchValue}`
-      setLoading(true);
-      setCurrentUrl(url);
-      const responseItems = await axios.get(url);
-      setNextUrl(returnCustomUrl(responseItems.data.next))
-      responseItems.data.results.forEach(element => {
-        element.id = id++;
-      });
-      setPostId(id)
-      setPosts(responseItems.data.results)
+      if (slashCounter(newSearchValue) === 1) {
+        let id = 1
+        const url = `http://localhost:3030/${newSearchValue}`
+        setLoading(true);
+        setCurrentUrl(url);
+        let responseItems = await axios.get(url);
+        setNextUrl(responseItems.data.next)
+        responseItems.data.results.forEach(element => {
+          element.id = id++;
+        });
+        setPostId(id)
+        setPosts(responseItems.data.results)
+      } else if (slashCounter(newSearchValue) === 2) {
+        window.location = newSearchValue
+      }
     } catch(error) {
       console.error(error);
     } finally {
@@ -43,8 +57,8 @@ const nextPage = async () => {
   try {
     let id = postId
     setCurrentUrl(nextUrl)
-    const responseItems = await axios.get(nextUrl);
-    setNextUrl(returnCustomUrl(responseItems.data.next))
+    let responseItems = await axios.get(nextUrl);
+    setNextUrl(responseItems.data.next)
     responseItems.data.results.forEach(element => {
       element.id = id++;
     });

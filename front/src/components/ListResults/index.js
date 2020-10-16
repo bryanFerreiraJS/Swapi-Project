@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import Item from './Item';
 
 const ListResults = ({ items }) => (
-  <Card.Group itemsPerRow={3} doubling>
+  <Card.Group itemsPerRow={5} doubling centered>
     {items.map((item) => (
       <Item key={item.id} {...item} />
     ))}
