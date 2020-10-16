@@ -8,7 +8,7 @@ const controller = {
   getAll: async (req, res) => {
     try {
       const endpoint = req.originalUrl
-      const responseData = await axios.get(`${BASE_URL}${endpoint}/`)
+      const responseData = await axios.get(`${BASE_URL}${endpoint}`)
       res.json(responseData.data)
     } catch (error) {
       res.status(500).send(error)
@@ -18,7 +18,7 @@ const controller = {
   getOne: async (req, res) => {
     try {
       const endpoint = req.originalUrl
-      const responseData = await axios.get(`${BASE_URL}${endpoint}/`)
+      const responseData = await axios.get(`${BASE_URL}${endpoint}`)
       res.json(responseData.data)
     } catch (error) {
       res.status(500).send(error)
