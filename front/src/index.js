@@ -7,12 +7,14 @@ import './assets/styles/index.css';
 import './assets/styles/App.css';
 
 import App from './components/App';
+import PeopleCard from './components/Card/PeopleCard';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <Route path='/' exact component={App} />
+      <Route path='/people/' component={PeopleCard} />
     </Router>
   </React.StrictMode>,
   document.getElementById('root')

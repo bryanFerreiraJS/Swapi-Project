@@ -17,6 +17,8 @@ const App = () => {
   const [nextUrl, setNextUrl] = useState('');
   const [postId, setPostId] = useState();
 
+  const BACK_URL = process.env.REACT_APP_BACK_URL
+
   const slashCounter = (string) => {
     let counter = 0
 
@@ -33,7 +35,7 @@ const App = () => {
     try {
       if (slashCounter(newSearchValue) === 1) {
         let id = 1
-        const url = `http://localhost:3030/${newSearchValue}`
+        const url = `${BACK_URL}/${newSearchValue}`
         setLoading(true);
         setCurrentUrl(url);
         let responseItems = await axios.get(url);
@@ -53,21 +55,21 @@ const App = () => {
     }
   }
 
-const nextPage = async () => {
-  try {
-    let id = postId
-    setCurrentUrl(nextUrl)
-    let responseItems = await axios.get(nextUrl);
-    setNextUrl(responseItems.data.next)
-    responseItems.data.results.forEach(element => {
-      element.id = id++;
-    });
-    setPostId(id)
-    setPosts(prevState => [...prevState, ...responseItems.data.results])
-  } catch(error) {
-    console.error(error);
+  const nextPage = async () => {
+    try {
+      let id = postId
+      setCurrentUrl(nextUrl)
+      let responseItems = await axios.get(nextUrl);
+      setNextUrl(responseItems.data.next)
+      responseItems.data.results.forEach(element => {
+        element.id = id++;
+      });
+      setPostId(id)
+      setPosts(prevState => [...prevState, ...responseItems.data.results])
+    } catch(error) {
+      console.error(error);
+    }
   }
-}
 
   return (
     <div>

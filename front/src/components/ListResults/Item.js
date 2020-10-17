@@ -2,9 +2,7 @@ import React from 'react';
 import { Card } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 
-const Item = ({ 
-  name
-}) => (
+const Item = ({ name }) => (
   <Card>
     <Card.Content>
       <Card.Header>{name}</Card.Header>
