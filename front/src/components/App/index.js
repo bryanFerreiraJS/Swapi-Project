@@ -82,7 +82,9 @@ const App = () => {
       />
       <ListResults items={posts} />
       {currentUrl && (
-        <Button onClick={nextPage}>Load More</Button>
+        <div id='button-container'>
+          <Button onClick={nextPage}>Load More</Button>
+        </div>
       )}
     </div>
   );

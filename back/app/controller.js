@@ -31,6 +31,8 @@ const exaustiveList = (data, frontOrBackUrl) => {
   data.url = setCustomUrl(data.url, frontOrBackUrl)
   data.homeworld = setCustomUrl(data.homeworld, frontOrBackUrl)
   data.people = setCustomUrl(data.people, frontOrBackUrl)
+  data.characters = setCustomUrl(data.characters, frontOrBackUrl)
+  data.planets = setCustomUrl(data.planets, frontOrBackUrl)
   data.films = setCustomUrl(data.films, frontOrBackUrl)
   data.pilots = setCustomUrl(data.pilots, frontOrBackUrl)
   data.vehicles = setCustomUrl(data.vehicles, frontOrBackUrl)
