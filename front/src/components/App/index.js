@@ -7,6 +7,7 @@ import { Button } from 'semantic-ui-react';
 import Header from '../Header';
 import ListResults from '../ListResults';
 import SearchBar from '../SearchBar';
+import Message from '../Message';
 
 // == Composant
 const App = () => {
@@ -15,6 +16,9 @@ const App = () => {
   const [loading, setLoading] = useState(false);
   const [nextUrl, setNextUrl] = useState('');
   const [postId, setPostId] = useState();
+  const [message, setMessage] = useState('Welcome, young padawan.');
+  const [hasError, setHasError] = useState(false);
+  const [messageVisible, setMessageVisible] = useState(true);
 
   const BACK_URL = process.env.REACT_APP_BACK_URL
 
@@ -30,12 +34,23 @@ const App = () => {
     return counter
   }
 
+  const displayMessage = (messageToDisplay) => {
+    setMessageVisible(true);
+    setMessage(messageToDisplay);
+  };
+
+  const reset = () => {
+    setHasError(false);
+    displayMessage('Please wait, your request is being processed...');
+    setLoading(true);
+  };
+
   const doSearch = async () => {
     try {
+      reset()
       if (slashCounter(newSearchValue) === 1) {
         let id = 1
         const url = `${BACK_URL}/${newSearchValue}`
-        setLoading(true);
         let responseItems = await axios.get(url);
         setNextUrl(responseItems.data.next)
         responseItems.data.results.forEach(element => {
@@ -43,11 +58,26 @@ const App = () => {
         });
         setPostId(id)
         setPosts(responseItems.data.results)
+        displayMessage('Request successfully completed.')
       } else if (slashCounter(newSearchValue) === 2) {
         window.location = newSearchValue
+      } else {
+        throw  Object.assign(
+          new Error('Incorret user input'),
+          { response: 
+            { status: 400 }
+          }
+       );
       }
     } catch(error) {
-      console.log(error.response);
+      console.error(error)
+      if (error.response.status === 400)
+        displayMessage('You made a typing error. Check and patch it before retry.')
+      else if (error.response.status === 404)
+        displayMessage(`${error.message}, padawan. Check and patch your potential typing error before retry.`);
+      else
+        displayMessage(`${error.message}, padawan. Please, retry later.`);
+      setHasError(true);
     } finally {
       setLoading(false);
     }
@@ -65,6 +95,8 @@ const App = () => {
       setPosts(prevState => [...prevState, ...responseItems.data.results])
     } catch(error) {
       console.error(error);
+      displayMessage(error.response.data.message);
+      setHasError(true);
     }
   }
 
@@ -77,6 +109,13 @@ const App = () => {
         changeValue={setNewSearchValue}
         loading={loading}
       />
+      {messageVisible && (
+        <Message
+          hasError={hasError}
+          content={message}
+          setMessageVisible={setMessageVisible}
+        />
+      )}
       <ListResults items={posts} />
       {nextUrl && (
         <div id='button-container'>
