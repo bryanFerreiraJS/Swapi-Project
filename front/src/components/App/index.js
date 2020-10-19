@@ -13,7 +13,6 @@ const App = () => {
   const [newSearchValue, setNewSearchValue] = useState('');
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [currentUrl, setCurrentUrl] = useState('');
   const [nextUrl, setNextUrl] = useState('');
   const [postId, setPostId] = useState();
 
@@ -37,7 +36,6 @@ const App = () => {
         let id = 1
         const url = `${BACK_URL}/${newSearchValue}`
         setLoading(true);
-        setCurrentUrl(url);
         let responseItems = await axios.get(url);
         setNextUrl(responseItems.data.next)
         responseItems.data.results.forEach(element => {
@@ -49,7 +47,7 @@ const App = () => {
         window.location = newSearchValue
       }
     } catch(error) {
-      console.error(error);
+      console.log(error.response);
     } finally {
       setLoading(false);
     }
@@ -58,7 +56,6 @@ const App = () => {
   const nextPage = async () => {
     try {
       let id = postId
-      setCurrentUrl(nextUrl)
       let responseItems = await axios.get(nextUrl);
       setNextUrl(responseItems.data.next)
       responseItems.data.results.forEach(element => {
@@ -81,7 +78,7 @@ const App = () => {
         loading={loading}
       />
       <ListResults items={posts} />
-      {currentUrl && (
+      {nextUrl && (
         <div id='button-container'>
           <Button onClick={nextPage}>Load More</Button>
         </div>

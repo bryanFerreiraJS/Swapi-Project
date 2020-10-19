@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios'
-import { Card } from 'semantic-ui-react';
+import { Button, Card } from 'semantic-ui-react';
 
 const StarshipsCard = () => {
   const [data, setData] = useState({});
@@ -28,7 +28,7 @@ const StarshipsCard = () => {
             {data.model}
           </Card.Meta>
           <Card.Description>
-            <ul>
+            <ul id={'data'}>
               <li>Manufacturer: {data.manufacturer}</li>
               <li>Class: {data.starship_class}</li>
               <li>Cost: {data.cost_in_credits === 'unknown' ? 'unknown' : `${data.cost_in_credits} galactic credits`}</li>
@@ -41,7 +41,8 @@ const StarshipsCard = () => {
               <li>MGLT: {data.MGLT}</li>
               {data.pilots?.length > 0 && (
                 <li>
-                  <ul>Pilots(s):
+                  Pilots(s):
+                  <ul>
                     {data.pilots.map((item) => (
                       <li key={item}>
                         <a href={item}>Click Here</a>
@@ -52,7 +53,8 @@ const StarshipsCard = () => {
               )}
               {data.films?.length > 0 && (
                 <li>
-                  <ul>Film(s):
+                  Film(s):
+                  <ul>
                     {data.films.map((item) => (
                       <li key={item}>
                         <a href={item}>Click Here</a>
@@ -65,6 +67,9 @@ const StarshipsCard = () => {
           </Card.Description>
         </Card.Content>
       </Card>
+      <div id='button-container'>
+        <Button onClick={() => window.location = '/'}>Return to Homepage</Button>
+      </div>
     </div>
   )
 };

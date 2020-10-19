@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios'
-import { Card } from 'semantic-ui-react';
+import { Button, Card } from 'semantic-ui-react';
 
 const PlanetsCard = () => {
   const [data, setData] = useState({});
@@ -25,7 +25,7 @@ const PlanetsCard = () => {
         <Card.Content>
           <Card.Header>{data.name}</Card.Header>
           <Card.Description>
-            <ul>
+            <ul id={'data'}>
               <li>Rotation Period: {data.rotation_period} h</li>
               <li>Orbital Period: {data.orbital_period} days</li>
               <li>Diameter: {data.diameter}</li>
@@ -36,7 +36,8 @@ const PlanetsCard = () => {
               <li>Population: {data.population === 'unknown' ? 'unknown' : `${data.population} peoples`}</li>
               {data.residents?.length > 0 && (
                 <li>
-                  <ul>Resident(s):
+                  Resident(s):
+                  <ul>
                     {data.residents.map((item) => (
                       <li key={item}>
                         <a href={item}>Click Here</a>
@@ -47,7 +48,8 @@ const PlanetsCard = () => {
               )}
               {data.films?.length > 0 && (
                 <li>
-                  <ul>Film(s):
+                  Film(s):
+                  <ul>
                     {data.films.map((item) => (
                       <li key={item}>
                         <a href={item}>Click Here</a>
@@ -60,6 +62,9 @@ const PlanetsCard = () => {
           </Card.Description>
         </Card.Content>
       </Card>
+      <div id='button-container'>
+        <Button onClick={() => window.location = '/'}>Return to Homepage</Button>
+      </div>
     </div>
   )
 };

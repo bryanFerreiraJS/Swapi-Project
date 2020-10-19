@@ -36,7 +36,7 @@ const SearchBar = ({
           loading={loading}
           icon="search"
           iconPosition="left"
-          placeholder="Recherche..."
+          placeholder='"people/", "species/2/", ...'
         />
       </Form>
     </Segment>

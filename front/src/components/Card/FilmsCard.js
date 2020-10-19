@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios'
-import { Card } from 'semantic-ui-react';
+import { Button, Card } from 'semantic-ui-react';
 
 const FilmsCard = () => {
   const [data, setData] = useState({});
@@ -25,16 +25,19 @@ const FilmsCard = () => {
         <Card.Content>
           <Card.Header>{data.title}</Card.Header>
           <Card.Description>
-            <ul>
+            <ul id={'data'}>
               <li>Episode ID: {data.episode_id}</li>
               <li>Release Date: {data.release_date}</li>
               <li>Director: {data.director}</li>
               <li>Producer: {data.producer}</li>
-              <li>Opening Crawl: {data.opening_crawl}</li>
+              <li id={'opening_crawl'}>Opening Crawl: {data.opening_crawl}</li>
             </ul>
           </Card.Description>
         </Card.Content>
       </Card>
+      <div id='button-container'>
+        <Button onClick={() => window.location = '/'}>Return to Homepage</Button>
+      </div>
     </div>
   )
 };

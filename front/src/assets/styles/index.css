@@ -1,7 +1,13 @@
 @import 'reset.css';
 
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-Regular.ttf");
+}
+
 body {
   margin: 0 20px;
+  font-family: "Roboto", arial, sans-serif;
 }
 
 .logo {
@@ -19,6 +25,27 @@ body {
 #card-container {
   display: flex;
   height: 100vh;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+#card-container .card {
+  width: 320px;
+}
+
+/* CSS pour aérer l'Opening Crawl de FilmsCard */
+#card-container #opening_crawl {
+  margin-top: 10px;
+  line-height: 1.4em;
+}
+
+#data > li {
+  margin: 5px 0;
+  display: flex;
+}
+
+#data a {
+  margin-left: 5px;
+  color: blue;
 }

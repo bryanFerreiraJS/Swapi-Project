@@ -55,7 +55,7 @@ const controller = {
       });
       res.json(responseData.data)
     } catch (error) {
-      res.status(500).send(error)
+      res.status(error.response.status).send(error)
     }
   },
 
@@ -66,7 +66,7 @@ const controller = {
       responseData.data = exaustiveList(responseData.data, FRONT_URL)
       res.json(responseData.data)
     } catch (error) {
-      res.status(500).send(error)
+      res.status(error.response.status).send(error)
     }
   },
 };
