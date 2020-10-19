@@ -36,7 +36,7 @@ const PlanetsCard = () => {
               <li>Population: {data.population === 'unknown' ? 'unknown' : `${data.population} peoples`}</li>
               {data.residents?.length > 0 && (
                 <li>
-                  Resident(s):
+                  Resident{data.residents?.length === 1 ? ':' : 's:'}
                   <ul>
                     {data.residents.map((item) => (
                       <li key={item}>
@@ -48,7 +48,7 @@ const PlanetsCard = () => {
               )}
               {data.films?.length > 0 && (
                 <li>
-                  Film(s):
+                  Film{data.films?.length === 1 ? ':' : 's:'}
                   <ul>
                     {data.films.map((item) => (
                       <li key={item}>

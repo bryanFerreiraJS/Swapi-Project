@@ -23,7 +23,7 @@ ReactDOM.render(
       <Route path='/species/' component={SpeciesCard} />
       <Route path='/starships/' component={StarshipsCard} />
       <Route path='/vehicles/' component={VehiclesCard} />
-      <Route path='/' component={App}/>
+      <Route exact path='/' component={App}/>
     </Router>
   </React.StrictMode>,
   document.getElementById('root')

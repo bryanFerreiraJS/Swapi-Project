@@ -39,7 +39,7 @@ const VehiclesCard = () => {
               <li>Cargo Capacity: {data.cargo_capacity} kg</li>
               {data.pilots?.length > 0 && (
                 <li>
-                  Pilots(s):
+                  Pilot{data.pilots?.length === 1 ? ':' : 's:'}
                   <ul>
                     {data.pilots.map((item) => (
                       <li key={item}>
@@ -51,7 +51,7 @@ const VehiclesCard = () => {
               )}
               {data.films?.length > 0 && (
                 <li>
-                  Film(s):
+                  Film{data.films?.length === 1 ? ':' : 's:'}
                   <ul>
                     {data.films.map((item) => (
                       <li key={item}>

@@ -41,7 +41,7 @@ const SpeciesCard = () => {
               <li>Language: {data.language === 'n/a' ? 'unknown' : data.language}</li>
               {data.people?.length > 0 && (
                 <li>
-                  People(s):
+                  People{data.people?.length === 1 ? ':' : 's:'}
                   <ul>
                     {data.people.map((item) => (
                       <li key={item}>
@@ -53,7 +53,7 @@ const SpeciesCard = () => {
               )}
               {data.films?.length > 0 && (
                 <li>
-                  Film(s):
+                  Film{data.films?.length === 1 ? ':' : 's:'}
                   <ul>
                     {data.films.map((item) => (
                       <li key={item}>

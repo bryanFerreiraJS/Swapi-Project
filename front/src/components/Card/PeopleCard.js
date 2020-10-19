@@ -40,7 +40,7 @@ const PeopleCard = () => {
               </li>
               {data.films?.length > 0 && (
                 <li>
-                  Film(s):
+                  Film{data.films?.length === 1 ? ':' : 's:'}
                   <ul>
                     {data.films.map((item) => (
                       <li key={item}>
@@ -52,7 +52,7 @@ const PeopleCard = () => {
               )}
               {data.species?.length > 0 && (
                 <li>
-                  Specie(s):
+                  Species:
                   <ul>
                     {data.species.map((item) => (
                       <li key={item}>
@@ -64,7 +64,7 @@ const PeopleCard = () => {
               )}
               {data.vehicles?.length > 0 && (
                 <li>
-                  Vehicle(s):
+                  Vehicle{data.vehicles?.length === 1 ? ':' : 's:'}
                   <ul>
                     {data.vehicles.map((item) => (
                       <li key={item}>
@@ -76,7 +76,7 @@ const PeopleCard = () => {
               )}
               {data.starships?.length > 0 && (
                 <li>
-                  Starship(s):
+                  Starship{data.starships?.length === 1 ? ':' : 's:'}
                   <ul>
                     {data.starships.map((item) => (
                       <li key={item}>

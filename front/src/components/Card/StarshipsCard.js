@@ -41,7 +41,7 @@ const StarshipsCard = () => {
               <li>MGLT: {data.MGLT}</li>
               {data.pilots?.length > 0 && (
                 <li>
-                  Pilots(s):
+                  Pilot{data.pilots?.length === 1 ? ':' : 's:'}
                   <ul>
                     {data.pilots.map((item) => (
                       <li key={item}>
@@ -53,7 +53,7 @@ const StarshipsCard = () => {
               )}
               {data.films?.length > 0 && (
                 <li>
-                  Film(s):
+                  Film{data.films?.length === 1 ? ':' : 's:'}
                   <ul>
                     {data.films.map((item) => (
                       <li key={item}>
