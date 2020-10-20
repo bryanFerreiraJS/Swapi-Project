@@ -1,16 +1,9 @@
-# Bienvenue sur mon Journal de Bord !
-
-Bonjour à toute l'équipe de Fastory !
-
-Je vais vous partager le compte-rendu de mon test technique et vous expliquer comment le lancer.
-
-(Je me permets de vous préciser que j'ai travaillé sur ce projet pendant la période du 13 au 20 octobre 2020, tout en ayant aucune expérience sur ReactJS initialement. Par conséquent, c'est la première fois que je code avec ReactJS et il est fort probable que mon code comporte des mauvaises pratiques. Si vous avez des axes d'améliorations à me donner, n'hésitez pas.)
+# Ce projet a été effectué en une semaine sans connaissance préalable de React.
 
 ### Back-End
 
-Le back-end a été effectué grâce au framework Express.JS. J'ai fait ce choix car je n'ai jamais eu l'occasion d'utiliser Hapi et j'ai fait en sorte de mettre un maximum de temps à profit pour mon apprentissage de React.
 Le serveur se lance grâce à la commande "node index.js USERNAME PASSWORD". 
-Comme vous pouvez constater, le système d'authentification est pris en charge. Normalement, vous connaissez les identifiants requis..
+Le système d'authentification est pris en charge. Les identifiants par défaut sont Luke et DadSucks.
 
 Voici le contenu du fichier .env nécessaire au fonctionnement du back-end :
 
@@ -28,12 +21,6 @@ Voici le contenu du fichier .env nécessaire au fonctionnement du back-end :
 
 ### Front-End
 
-- Le front-end a été effectué avec ReactJS comme demandé.
-- L'API ne permet pas de récupérer les images des résultats. Par conséquent, je n'ai affiché que les noms des résultats. Au clic, on est redirigé sur une fiche détaillant le résultat en question.
-- Un message s'affiche pour notifier l'utilisateur et améliorer son expérience.
-- Des fiches détaillant les résultats ont été implantés. Elles sont différentes en fonction du type de donnée.
-- Un router a été également implémenté. Il permet d'accéder à n'importe quelle fiche et d'accéder directement au résultat d'une recherche.
-
 Le front-end se lance grâce à la commande "yarn start".
 
 Voici le contenu du fichier .env nécessaire au fonctionnement du back-end :
@@ -42,12 +29,4 @@ Voici le contenu du fichier .env nécessaire au fonctionnement du back-end :
 
 > REACT_APP_FRONT_URL=http://localhost:3000
 
-### Le mot de la fin
-
-Ce projet était très formateur. J'espère qu'il vous plaira !
-
-Je tenais à vous remercier d'avoir lu ce rapport jusqu'au bout et pour le temps que vous m'avez accordé. Si vous rencontrez la moindre difficulté concernant le test technique, n'hésitez pas à me solliciter. Je serais bien évidemment disponible.
-
-J'ai hâte d'avoir votre feedback. Bien à vous,
-
-Bryan
+Pour plus d'informations sur les syntaxes des endpoints, rendez vous sur [le site de l'API utilisé dans ce projet.](https://swapi.dev/)
