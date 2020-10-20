@@ -4,6 +4,7 @@
 
 Le serveur se lance grâce à la commande "node index.js USERNAME PASSWORD". 
 Le système d'authentification est pris en charge. Les identifiants par défaut sont Luke et DadSucks.
+Le mot de passe est haché via bcrypt et stocké ensuite dans le fichier .env .
 
 Voici le contenu du fichier .env nécessaire au fonctionnement du back-end :
 
