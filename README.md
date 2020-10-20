@@ -1,4 +1,4 @@
-# Ce projet a été effectué en une semaine sans connaissance préalable de React.
+## Ce projet a été effectué en une semaine, sans connaissance préalable de React.
 
 ### Back-End
 
