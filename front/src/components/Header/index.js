@@ -1,6 +1,6 @@
 import React from 'react';
 
-import logo from '../../assets/images/logo.svg';
+import logo from '../../assets/images/logo.png';
 
 const Header = () => (
   <header className="wrapper">

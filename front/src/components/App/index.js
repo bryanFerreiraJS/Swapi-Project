@@ -71,13 +71,13 @@ const App = () => {
       }
     } catch(error) {
       console.error(error)
+      setHasError(true);
       if (error.response.status === 400)
         displayMessage('You made a typing error. Check and patch it before retry.')
       else if (error.response.status === 404)
         displayMessage(`${error.message}, padawan. Check and patch your potential typing error before retry.`);
       else
         displayMessage(`${error.message}, padawan. Please, retry later.`);
-      setHasError(true);
     } finally {
       setLoading(false);
     }
@@ -95,7 +95,7 @@ const App = () => {
       setPosts(prevState => [...prevState, ...responseItems.data.results])
     } catch(error) {
       console.error(error);
-      displayMessage(error.response.data.message);
+      displayMessage(error.message);
       setHasError(true);
     }
   }
