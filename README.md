@@ -4,7 +4,7 @@ Bonjour à toute l'équipe de Fastory !
 
 Je vais vous partager le compte-rendu de mon test technique et vous expliquer comment le lancer.
 
-(Je me permets de vous repréciser que j'ai travaillé sur ce projet pendant la période du 13 au 20 octobre 2020, tout en ayant aucune expérience sur ReactJS initialement. Par conséquent, c'est la première fois que je code avec ReactJS et il est fort probable que mon code comporte des mauvaises pratiques. Si vous avez des axes d'améliorations à me donner, n'hésitez pas.)
+(Je me permets de vous préciser que j'ai travaillé sur ce projet pendant la période du 13 au 20 octobre 2020, tout en ayant aucune expérience sur ReactJS initialement. Par conséquent, c'est la première fois que je code avec ReactJS et il est fort probable que mon code comporte des mauvaises pratiques. Si vous avez des axes d'améliorations à me donner, n'hésitez pas.)
 
 ### Back-End
 
