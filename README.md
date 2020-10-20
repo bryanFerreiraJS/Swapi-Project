@@ -30,4 +30,4 @@ Voici le contenu du fichier .env nécessaire au fonctionnement du back-end :
 
 > REACT_APP_FRONT_URL=http://localhost:3000
 
-Pour plus d'informations sur les syntaxes des endpoints, rendez vous sur [le site de l'API utilisé dans ce projet.](https://swapi.dev/)
+Pour plus d'informations sur les syntaxes des endpoints, rendez-vous sur [le site de l'API utilisé dans ce projet.](https://swapi.dev/)
