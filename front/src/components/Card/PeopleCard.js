@@ -1,26 +1,26 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import { Button, Card } from 'semantic-ui-react';
+import { Button, Card } from 'semantic-ui-react'
 
 const PeopleCard = () => {
-  const [data, setData] = useState({});
+  const [data, setData] = useState({})
 
   const BACK_URL = process.env.REACT_APP_BACK_URL
 
   useEffect(() => {
     const axiosData = async () => {
       try {
-        const responseItems = await axios.get(`${BACK_URL}${window.location.pathname}`);
+        const responseItems = await axios.get(`${BACK_URL}${window.location.pathname}`)
         setData(responseItems.data)
       } catch(error) {
-        console.error(error);
+        console.error(error)
       }
     }
     axiosData()
-  }, [BACK_URL]);
+  }, [BACK_URL])
 
   return (
-    <div id={'card-container'}>
+    <div id='card-container'>
       <Card>
         <Card.Content>
           <Card.Header>{data.name}</Card.Header>
@@ -28,7 +28,7 @@ const PeopleCard = () => {
           {(data.gender === 'n/a' || data.gender === 'none' )? 'asexual' : data.gender}
           </Card.Meta>
           <Card.Description>
-            <ul id={'data'}>
+            <ul id='data'>
               <li>Height: {data.height === 'unknown' ? 'unknown' : `${data.height / 100} m`}</li>
               <li>Mass: {data.mass === 'unknown' ? 'unknown' : `${data.mass} kg`}</li>
               <li>Hair Color: {(data.hair_color === 'n/a' || data.hair_color === 'none') ? "this people don't have hair" : data.hair_color}</li>
@@ -95,6 +95,6 @@ const PeopleCard = () => {
       </div>
     </div>
   )
-};
+}
 
-export default PeopleCard;
+export default PeopleCard

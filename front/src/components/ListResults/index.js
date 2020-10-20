@@ -1,8 +1,8 @@
-import React from 'react';
-import { Card } from 'semantic-ui-react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import { Card } from 'semantic-ui-react'
+import PropTypes from 'prop-types'
 
-import Item from './Item';
+import Item from './Item'
 
 const ListResults = ({ items }) => {
 
@@ -13,7 +13,7 @@ const ListResults = ({ items }) => {
       ))}
     </Card.Group>
   )
-};
+}
 
 ListResults.propTypes = {
   items: PropTypes.arrayOf(
@@ -21,6 +21,6 @@ ListResults.propTypes = {
       id: PropTypes.number.isRequired,
     }),
   ).isRequired,
-};
+}
 
-export default ListResults;
+export default ListResults

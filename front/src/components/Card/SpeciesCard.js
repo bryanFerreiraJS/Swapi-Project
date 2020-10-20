@@ -1,26 +1,26 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import { Button, Card } from 'semantic-ui-react';
+import { Button, Card } from 'semantic-ui-react'
 
 const SpeciesCard = () => {
-  const [data, setData] = useState({});
+  const [data, setData] = useState({})
 
   const BACK_URL = process.env.REACT_APP_BACK_URL
 
   useEffect(() => {
     const axiosData = async () => {
       try {
-        const responseItems = await axios.get(`${BACK_URL}${window.location.pathname}`);
+        const responseItems = await axios.get(`${BACK_URL}${window.location.pathname}`)
         setData(responseItems.data)
       } catch(error) {
-        console.error(error);
+        console.error(error)
       }
     }
     axiosData()
-  }, [BACK_URL]);
+  }, [BACK_URL])
 
   return (
-    <div id={'card-container'}>
+    <div id='card-container'>
       <Card>
         <Card.Content>
           <Card.Header>{data.name}</Card.Header>
@@ -28,7 +28,7 @@ const SpeciesCard = () => {
             {data.classification}
           </Card.Meta>
           <Card.Description>
-            <ul id={'data'}>
+            <ul id='data'>
               <li>Designation: {data.designation}</li>
               <li>Average Height: {data.average_height === 'n/a' ? 'unknown' : `${data.average_height} cm`}</li>
               <li>Skin Color(s): {data.skin_colors === 'n/a' ? 'unknown' : data.skin_colors}</li>
@@ -72,6 +72,6 @@ const SpeciesCard = () => {
       </div>
     </div>
   )
-};
+}
 
-export default SpeciesCard;
+export default SpeciesCard

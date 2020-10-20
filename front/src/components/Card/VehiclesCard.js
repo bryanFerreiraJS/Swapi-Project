@@ -1,26 +1,26 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import { Button, Card } from 'semantic-ui-react';
+import { Button, Card } from 'semantic-ui-react'
 
 const VehiclesCard = () => {
-  const [data, setData] = useState({});
+  const [data, setData] = useState({})
 
   const BACK_URL = process.env.REACT_APP_BACK_URL
 
   useEffect(() => {
     const axiosData = async () => {
       try {
-        const responseItems = await axios.get(`${BACK_URL}${window.location.pathname}`);
+        const responseItems = await axios.get(`${BACK_URL}${window.location.pathname}`)
         setData(responseItems.data)
       } catch(error) {
-        console.error(error);
+        console.error(error)
       }
     }
     axiosData()
-  }, [BACK_URL]);
+  }, [BACK_URL])
 
   return (
-    <div id={'card-container'}>
+    <div id='card-container'>
       <Card>
         <Card.Content>
           <Card.Header>{data.name}</Card.Header>
@@ -28,7 +28,7 @@ const VehiclesCard = () => {
             {data.model}
           </Card.Meta>
           <Card.Description>
-            <ul id={'data'}>
+            <ul id='data'>
               <li>Manufacturer: {data.manufacturer}</li>
               <li>Class: {data.vehicle_class}</li>
               <li>Cost: {data.cost_in_credits === 'unknown' ? 'unknown' : `${data.cost_in_credits} galactic credits`}</li>
@@ -70,6 +70,6 @@ const VehiclesCard = () => {
       </div>
     </div>
   )
-};
+}
 
-export default VehiclesCard;
+export default VehiclesCard
