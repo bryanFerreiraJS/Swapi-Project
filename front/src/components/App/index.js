@@ -51,8 +51,8 @@ const App = () => {
       reset()
       let id = 1
       const url = `${BACK_URL}/${newSearchValue}`
-      let responseItems = await axios.get(url)
       if (slashCounter(newSearchValue) === 1) {
+        let responseItems = await axios.get(url)
         setNextUrl(responseItems.data.next)
         responseItems.data.results.forEach(element => {
           element.id = id++
@@ -61,6 +61,8 @@ const App = () => {
         setPosts(responseItems.data.results)
         displayMessage('Request successfully completed.')
       } else if (slashCounter(newSearchValue) === 2) {
+        // Si la requête échoue, nous passons dans le "catch" avant la redirection.
+        await axios.get(url)
         window.location = newSearchValue
       } else {
         throw  Object.assign(
